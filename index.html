@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Route Live</title>
+  <style>
+    /* Sticky Ad Banner (Anchor Format) */
+    .ad-banner {
+      position: relative;
+      width: 100%;
+      background-color: #f0f0f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1000;
+      transform: translateY(-100%);
+      animation: slideDown 0.5s forwards;
+      height:fit-content;
+      border: 1px solid #555;
+      transition: height 0.3s ease;
+    }
+
+    .ad-banner.minimized {
+      height: 4vh;
+      padding: 0 10px;
+    }
+
+    .ad-banner.minimized .ad-content,
+    .ad-banner.minimized .ad-action,
+    .ad-banner.minimized img,
+    .ad-banner.minimized .close-btn {
+      display: none;
+    }
+
+
+    .ad-banner img {
+      max-width: 20%;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    .ad-banner .ad-content {
+      color: #333;
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .ad-banner .ad-content div h3 {
+      font-size: 3rem;
+      color: #00aaff;
+      display: inline;
+    }
+
+    .ad-banner .ad-action {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .ad-banner .ad-action a {
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #00aaff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .ad-banner .ad-action a:hover {
+      background-color: #0090d0;
+    }
+
+    .ad-banner .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 3rem;
+      color: #555;
+      padding: 0 5px;
+    }
+
+    .ad-banner .close-btn:hover {
+      color: #00aaff;
+    }
+
+    .ad-banner .minimize-btn {
+      cursor: pointer;
+      font-size: 2.5rem;
+      border-radius: 2%;
+      background-color: #f0f0f0;
+      padding:0 1.5rem;
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      transform: translateY(100%);
+    }
+
+    .ad-banner.minimized .minimize-btn {
+      transform: translateY(0);
+      bottom: 0;
+    }
+
+.ad-banner.minimized .minimize-btn::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1rem;
+  background: url("assets/downarrow.svg") no-repeat center;
+  background-size: contain;
+}
+
+    .ad-banner .minimize-btn::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 1rem;
+  background: url("assets/uparrow.svg") no-repeat center;
+  background-size: contain;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+
+
+iframe {
+  width: 100%;
+  height: 80vh; /* or 100vh minus your header/ad-banner height */
+  border: none;
+  margin: 1rem 0;
+}
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ad-banner">
+    <img src="assets/coursera.svg" alt="Ad Logo">
+    <div class="ad-content">
+    <div>
+      <h3>Grow up your career</h3> at coursera.com
+    </div>
+    <div class="ad-action">
+      <a href="https://www.coursera.com">Sign up now</a>
+    </div>
+    </div>
+    <button class="minimize-btn" onclick="this.parentElement.classList.toggle('minimized')"></button>
+  </div>
+      <iframe style="border: 1px solid orange;" src="http://cit-transport/route-detail/63" title="Live Map Tracker"></iframe>
+</body>
+</html>
